@@ -1,0 +1,42 @@
+--This goes in your onLoad() function so that when someone starts the mod, they get seated in a valid color.
+
+function onLoad()
+  local availableColors = Player.getAvailableColors()
+  local playerIsSeated = false
+
+  local players = Player.getPlayers()
+  for _, player in ipairs(players) do
+    for _, color in ipairs(availableColors) do
+      if color == player.color then
+        playerIsSeated = true
+      end
+    end
+    if playerIsSeated == false then
+      for _, color in ipairs(availableColors) do
+        if Player[color].seated == false then
+          player.changeColor(color)
+        end
+      end
+    end
+  end
+end
+
+--This ensures that when players join the server, they will be automatically seated in a valid color.
+
+function onPlayerConnect(player)
+  local availableColors = Player.getAvailableColors()
+  local playerIsSeated = false
+
+  for _, color in ipairs(availableColors) do
+    if color == player.color then
+      playerIsSeated = true
+    end
+  end
+  if playerIsSeated == false then
+    for _, color in ipairs(availableColors) do
+      if Player[color].seated == false then
+        player.changeColor(color)
+      end
+    end
+  end
+end
