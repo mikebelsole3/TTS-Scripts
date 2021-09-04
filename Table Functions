@@ -1,0 +1,17 @@
+--Counts the number of elements in a table--
+function countTable(table)
+  local count = 0
+  for _, x in ipairs(table) do
+    count = count + 1
+  end
+  return count
+end
+
+--Returns an exact copy of a table
+function copyTable(z)
+  local newTable = {}
+  for _, x in ipairs(z) do
+    table.insert(newTable, x)
+  end
+  return newTable
+end
