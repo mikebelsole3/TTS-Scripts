@@ -1,0 +1,38 @@
+--Returns the first deck of cards found in a zone
+--Returns nil if no decks are found
+
+function getDeckFromZone(zone)
+  for _, x in ipairs(zone.getObjects()) do
+    if x.name == "Deck" or x.name == "DeckCustom" then
+      return x
+    else
+    end
+  end
+  return nil
+end
+
+--Returns the first card found in a zone
+--Returns nil if no cards are found
+
+function getCardFromZone(zone)
+  for _, x in ipairs(zone.getObjects()) do
+    if x.name == "Card" then
+      return x
+    else
+    end
+  end
+  return nil
+end
+
+--Returns the first card or deck of cards found in a zone
+--Returns nil if no decks or cards are found
+
+function getDeckOrCardFromZone(zone)
+  for _, x in ipairs(zone.getObjects()) do
+    if x.name == "Deck" or x.name == "DeckCustom" or x.name == "Card" then
+      return x
+    else
+    end
+  end
+  return nil
+end
