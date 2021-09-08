@@ -1,0 +1,20 @@
+--Change the position and rotation of the text using the pos and rot values
+--Change what the text displays using the Text value
+
+spawnObjectData({
+    data = {
+      Name              = "3DText",
+      Transform         = {
+        posX = 00.00,
+        posY = 00.00,
+        posZ = 00.00,
+        rotX = 90,
+        rotY = 0,
+        rotZ = 0,
+      },
+      Locked = true,
+      Text = {
+        Text = "Hello World"
+      },
+    },
+  })
