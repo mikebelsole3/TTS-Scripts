@@ -1,3 +1,4 @@
+--This will spawn text as if you used the Text Tool
 --Change the position and rotation of the text using the pos and rot values
 --Change what the text displays using the Text value
 
