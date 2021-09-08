@@ -36,3 +36,15 @@ function getDeckOrCardFromZone(zone)
   end
   return nil
 end
+
+--[[
+  EXAMPLE
+  
+  myDeckZone_GUID = "x0x0x0"
+  myDeckZone = getObjectFromGUID(myDeckZone_GUID)
+  
+  deck = getDeckFromZone(myDeckZone)
+  
+  deck.shuffle()
+  deck.deal(1)
+]]
