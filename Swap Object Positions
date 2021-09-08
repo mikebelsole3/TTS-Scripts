@@ -1,0 +1,39 @@
+--This swaps the positions of two objects based on the original position of the dropped object at the time when it was picked up.
+--So a grid of objects will remain in their grid when the objects swap positions.
+--It triggers when a player picks up an object and drops it onto another object.
+
+pickUpPosition = nil
+
+function onObjectPickUp(player_color, picked_up_object)
+  pickUpPosition = picked_up_object.getPosition()
+end
+
+function onObjectDrop(player_color, dropped_object)
+  Wait.condition(
+    function()
+      local hitList = Physics.cast({
+        origin       = dropped_object.getPosition(),
+        direction    = {0,1,0},
+        type         = 3,
+        size         = {1,1,1}, --Increase the size of the cast if your object is not swapping with objects it is dropped on.
+        orientation  = {0,0,0},
+        max_distance = 0,
+        debug        = false,
+      })
+      
+      for _, x in ipairs(hitList) do
+        if x.hit_object ~= dropped_object
+        and x.hit_object.hasTag("Cube") 
+        and dropped_object.hasTag("Cube") then --I'm using tags to validate the objects, but you can use whatever you like (name, GM Notes, etc.)
+          local hitObjPos = x.hit_object.getPosition()
+
+          dropped_object.setPositionSmooth(hitObjPos)
+          x.hit_object.setPositionSmooth(pickUpPosition)
+          return
+        end
+      end
+
+    end,
+    function() return dropped_object.resting end
+  )
+end
