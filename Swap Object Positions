@@ -25,9 +25,7 @@ function onObjectDrop(player_color, dropped_object)
         if x.hit_object ~= dropped_object
         and x.hit_object.hasTag("Cube") 
         and dropped_object.hasTag("Cube") then --I'm using tags to validate the objects, but you can use whatever you like (name, GM Notes, etc.)
-          local hitObjPos = x.hit_object.getPosition()
-
-          dropped_object.setPositionSmooth(hitObjPos)
+          dropped_object.setPositionSmooth(x.hit_object.getPosition())
           x.hit_object.setPositionSmooth(pickUpPosition)
           return
         end
