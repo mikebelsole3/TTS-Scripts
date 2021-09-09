@@ -40,7 +40,9 @@ end
 --[[
   EXAMPLE
   
-  myDeckZone_GUID = "x0x0x0"
+  --Create a scripting zone on your table so that it encompasses the deck you'd like to manipulate.
+  
+  myDeckZone_GUID = "xxxxxx"
   myDeckZone = getObjectFromGUID(myDeckZone_GUID)
   
   deck = getDeckFromZone(myDeckZone)
