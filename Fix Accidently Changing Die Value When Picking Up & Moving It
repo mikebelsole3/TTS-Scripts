@@ -1,0 +1,16 @@
+--Returns a die (D6 in this case) to its original rotation when it was picked up in case it rolls accidentaly.
+--NOTE: This will not allow players to roll dice by throwing them. They must use [R]. 
+
+function onObjectPickUp(player_color, picked_up_object)
+  if picked_up_object.name == "Die_6" then --Change the name here if you have a different type of die
+    local rotValue = picked_up_object.getRotationValue()
+
+    Wait.condition(function()
+          if picked_up_object.getRotationValue() ~= rotValue then
+            picked_up_object.setRotationValue(rotValue)
+          end
+      end,
+      function() return picked_up_object.resting end
+    )
+  end
+end
