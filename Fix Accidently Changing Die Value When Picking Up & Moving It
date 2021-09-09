@@ -1,4 +1,4 @@
---Returns a die (D6 in this case) to its original rotation when it was picked up in case it rolls accidentaly.
+--Returns a die (D6 in this case) to its original rotation when it was picked up in case it rolls accidentaly while moving it.
 --NOTE: This will not allow players to roll dice by throwing them. They must use [R]. 
 
 function onObjectPickUp(player_color, picked_up_object)
