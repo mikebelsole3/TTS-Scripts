@@ -1,3 +1,5 @@
+-- THIS IS BROKEN AT THE MOMENT --
+
 --This goes in your onLoad() function so that when someone starts the mod, they get seated in a valid color.
 
 function onLoad()
