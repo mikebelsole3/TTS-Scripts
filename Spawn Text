@@ -1,6 +1,8 @@
 --This will spawn text as if you used the Text Tool
---Change the position and rotation of the text using the pos and rot values
---Change what the text displays using the Text value
+--Change the position and rotation of the text by modifying the 'pos' and 'rot' values
+--Change what the text displays by modifying 'Text'
+--Change the color by modifying 'colorstate'
+--Change the font size by modifying 'fontSize'
 
 spawnObjectData({
     data = {
@@ -15,7 +17,14 @@ spawnObjectData({
       },
       Locked = true,
       Text = {
-        Text = "Hello World"
+        Text = "Hello World",
+        colorstate = {
+          r = 1,
+          b = 1,
+          g = 1,
+          a = 1
+        },
+        fontSize = 64,
       },
-    },
+    }    
   })
