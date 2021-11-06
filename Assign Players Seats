@@ -15,6 +15,7 @@ function onLoad()
       for _, color in ipairs(availableColors) do
         if Player[color].seated == false then
           player.changeColor(color)
+          break
         end
       end
     end
@@ -36,6 +37,7 @@ function onPlayerConnect(player)
     for _, color in ipairs(availableColors) do
       if Player[color].seated == false then
         player.changeColor(color)
+        break
       end
     end
   end
