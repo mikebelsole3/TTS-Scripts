@@ -1,0 +1,16 @@
+--To use, you will need the "getDeckFromZone" function I have written
+
+function tagCardsInDeck(tag, zone)
+  local cardsToTag = getDeckFromZone(zone)
+  local yPos = 1
+  if cardsToTag ~= nil then
+    for i = 1, cardsToTag.getQuantity() do
+      cardsToTag.takeObject({
+        position          = {cardsToTag.getPosition().x-3, yPos, cardsToTag.getPosition().z},
+        callback_function = function(obj) obj.addTag(tag) end,
+        smooth            = true,
+      })
+      yPos = yPos + 1
+    end
+  end
+end
